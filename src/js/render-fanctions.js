@@ -1,9 +1,15 @@
+// Описаний у документації
+import iziToast from "izitoast";
+// Додатковий імпорт стилів
+import "izitoast/dist/css/iziToast.min.css";
+
 const loadMoreBtn = document.querySelector('.load-more-btn');
 
 export function createMarkup(arr) {
   return arr.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) =>
     `     <li class="gallery-item">
-          <a class="gallery-link" href="${largeImageURL}">
+            <div class="card">
+             <a class="gallery-link" href="${largeImageURL}">
             <img
               class="gallery-image"
               src="${webformatURL}"
@@ -11,6 +17,7 @@ export function createMarkup(arr) {
               width="360"
             />
           </a>
+          </div>
           <div class="thumb-block">
             <div class="block">
               <h2 class="tittle">Likes</h2>
@@ -28,8 +35,8 @@ export function createMarkup(arr) {
               <h2 class="tittle">Downloads</h2>
               <p class="amount">${downloads}</p>
             </div>
-          </div>
-        </li>`)
+          </div>         
+        </li> `)
     .join('');
 }
 

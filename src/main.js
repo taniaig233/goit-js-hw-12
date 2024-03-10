@@ -131,10 +131,10 @@ function onLoadMore() {
 
 
 function scrollingTopPage() {
-    const pictHeight = listImages.firstElementChild.getBoundingClientRect().height;
-    window.scrollBy({
-        top: 2 * pictHeight,
-        left: 0,
-        behavior: 'smooth',
-    });
-}
+     const cards = document.querySelectorAll('.card');
+    
+    if (cards.length > 0) {
+        const cardHeight = cards[0].getBoundingClientRect();
+        window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' });
+    }
+ }
